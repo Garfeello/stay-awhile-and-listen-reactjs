@@ -39,14 +39,14 @@ export default class QuoteUploadForm extends Component {
         this.setState(this.initialState)
     }
 
-    resetCharacter = () => {
-        this.setState(() => this.initialState);
-    }
-
     characterChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
+    }
+
+    resetCharacter = () => {
+        this.setState(() => this.initialState);
     }
 
     render() {
