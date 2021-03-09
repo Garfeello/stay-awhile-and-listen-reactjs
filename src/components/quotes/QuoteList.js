@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {Button, ButtonGroup, Card, Table} from "react-bootstrap";
 import axios from "axios";
 
+import Mp3FilePlayer from "../player/Mp3FilePlayer";
+
 export default class QuoteList extends Component {
 
     constructor(props) {
@@ -50,7 +52,7 @@ export default class QuoteList extends Component {
                             <tr align={"center"} key={quote.id}>
                                 <td>{quote.id}</td>
                                 <td>{quote.diablo2Character.name}</td>
-                                <td>{quote.name}</td>
+                                <td><Mp3FilePlayer children={{quoteId: quote.id, quoteName: quote.name}}/></td>
                                 <td>
                                     <ButtonGroup>
                                         <Button size={"sm"}

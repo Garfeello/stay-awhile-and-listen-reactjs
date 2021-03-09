@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Button, ButtonGroup, Card, Table} from "react-bootstrap";
 import axios from "axios";
+
 import MyToast from "../toasts/MyToast";
 
 export default class CharacterList extends Component {
