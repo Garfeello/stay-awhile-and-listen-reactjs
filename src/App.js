@@ -4,7 +4,7 @@ import React from 'react'
 import {BrowserRouter as Router} from "react-router-dom";
 import {Container, Row, Col,} from "react-bootstrap";
 import Switch from "react-bootstrap/Switch";
-import Route from "react-router-dom/es/Route";
+import {Route} from "react-router-dom";
 
 import MainNavbar from "./components/mainStructure/MainNavbar";
 import QuoteUploadForm from "./components/quotes/QuoteUploadForm";
@@ -12,8 +12,7 @@ import QuoteList from "./components/quotes/QuoteList";
 import Footer from "./components/mainStructure/Footer";
 import AddCharacterForm from "./components/characters/AddCharacterForm";
 import CharacterList from "./components/characters/CharacterList";
-import Mp3FilePlayer from "./components/player/Mp3FilePlayer";
-
+import MainPage from "./components/mainStructure/MainPage";
 
 function App() {
 
@@ -26,7 +25,7 @@ function App() {
                 <Row>
                     <Col lg={12} style={marginTop}>
                         <Switch>
-                            {/*<Route path={"/"} exact component={Mp3FilePlayer}/>*/}
+                            <Route path={"/"} exact component={MainPage}/>
                             <Route path={"/characterList"} exact component={CharacterList}/>
                             <Route path={"/quotesList"} exact component={QuoteList}/>
                             <Route path={"/add"} exact component={QuoteUploadForm}/>
@@ -35,7 +34,9 @@ function App() {
                     </Col>
                 </Row>
             </Container>
-            <Footer/>
+            <Container>
+                <Footer/>
+            </Container>
         </Router>
     );
 }

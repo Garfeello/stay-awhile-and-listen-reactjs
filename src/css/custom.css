@@ -1,0 +1,11 @@
+.rhap_container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    font-family: inherit;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #495057;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+}

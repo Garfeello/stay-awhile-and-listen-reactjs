@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import logo from "../../logo/pngwing.com.png"
 
-import {Button, Container, Form, FormControl, Nav, Navbar} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
 export default class MainNavbar extends Component {
@@ -18,10 +18,6 @@ export default class MainNavbar extends Component {
                         <Link className="nav-link" to={"add"}>AddQuote</Link>
                         <Link className="nav-link" to={"addCharacter"}>AddCharacter</Link>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
-                        <Button variant="outline-info">Search</Button>
-                    </Form>
                 </Navbar>
         );
     }

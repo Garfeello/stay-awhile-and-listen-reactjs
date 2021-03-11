@@ -50,7 +50,6 @@ export default class QuoteUploadForm extends Component {
     }
 
     render() {
-
         return (
             <div>
                 <div style={{"display": this.state.show ? "block" : "none"}}>
