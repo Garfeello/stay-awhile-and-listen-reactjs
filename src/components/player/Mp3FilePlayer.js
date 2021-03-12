@@ -3,8 +3,6 @@ import React, {Component} from "react";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-
-
 export default class Mp3FilePlayer extends Component {
 
     render() {
