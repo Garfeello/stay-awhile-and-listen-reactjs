@@ -24,27 +24,25 @@ export default class MainPage extends Component {
     }
 
     render() {
-        const marginTop = {marginTop: "20px"};
-        console.log("DAY: " + this.state.currentDay)
+        const marginTopTextCenter = {marginTop: "10px", marginLeft: "250px",textAlign: "center"};
+
         return (
-            <Row>
-                <Col lg={6} style={marginTop}>
-                    <Card className={"border border-dark bg-dark text-white"}>
-                        <Card.Body>
-                            <Card.Header as={"h5"}>
-                                {this.state.quote.name}
-                            </Card.Header>
-                            <Card.Text>
-                                <Mp3FilePlayer
-                                    children={{
-                                        quoteId: this.state.quote.id,
-                                        quoteName: this.state.quote.name
-                                    }}/>
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
+                <Row>
+                    <Col lg={6} style={marginTopTextCenter}>
+                        <Card className={"border border-dark bg-dark text-white"}>
+                            <Card.Body>
+                                <Card.Header as={"h5"}>Today's random quote</Card.Header>
+                                <Card.Text>
+                                    <Mp3FilePlayer
+                                        children={{
+                                            quoteId: this.state.quote.id,
+                                            quoteName: this.state.quote.name
+                                        }}/>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
         )
     }
 
