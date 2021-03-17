@@ -17,6 +17,7 @@ export default class Mp3FilePlayer extends Component {
                         showJumpControls={false}
                         header={trackName}
                         src={adres}
+                        autoPlay={false}
                     />
                 </div>
             </div>
