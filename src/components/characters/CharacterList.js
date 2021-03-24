@@ -3,7 +3,12 @@ import React, {Component} from "react";
 import {Button, ButtonGroup, Card, Table} from "react-bootstrap";
 import axios from "axios";
 
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEdit, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
+
+
 import MyToast from "../toasts/MyToast";
+import {Link} from "react-router-dom";
 
 export default class CharacterList extends Component {
 
@@ -63,9 +68,12 @@ export default class CharacterList extends Component {
                                     <td>{character.description}</td>
                                     <td>
                                         <ButtonGroup>
-                                            <Button size={"sm"}
-                                                    variant={"outline-danger"}
-                                                    onClick={this.deleteCharacter.bind(this, character.id)}>Delete</Button>
+                                            <Button size={"sm"} variant={"outline-danger"} onClick={this.deleteCharacter.bind(this, character.id)}>
+                                                <FontAwesomeIcon icon={faTrashAlt}/> Delete
+                                            </Button>
+                                            <Link to={"editCharacter/" + character.id} className={"btn btn-sm btn-outline-primary"}>
+                                                <FontAwesomeIcon icon={faEdit}/> Edit
+                                            </Link>
                                         </ButtonGroup>
                                     </td>
                                 </tr>

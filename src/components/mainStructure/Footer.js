@@ -9,7 +9,7 @@ export default class Footer extends Component {
         return (
             <Navbar fixed={"bottom"} bg={"dark"} variant={"dark"}>
                 <Container className="text-center text-muted">
-                    <div> NO RIGHTS RESERVED? {fullYear}</div>
+                    <div> NO RIGHTS !!! {fullYear}</div>
                 </Container>
             </Navbar>
         );

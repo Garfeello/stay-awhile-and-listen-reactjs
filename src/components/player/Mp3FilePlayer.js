@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 
 import AudioPlayer from 'react-h5-audio-player';
+
 import 'react-h5-audio-player/lib/styles.css';
+import "./../../App.scss";
 
 export default class Mp3FilePlayer extends Component {
 
@@ -10,17 +12,12 @@ export default class Mp3FilePlayer extends Component {
         const trackName = this.props.children.quoteName
 
         return (
-            <div className={"text-dark center row"}>
-                <div className="col-md-6 col-md-offset-3">
-                    <AudioPlayer
-                        style={{width: '479px'}}
-                        showJumpControls={false}
-                        header={trackName}
-                        src={adres}
-                        autoPlay={false}
-                    />
-                </div>
-            </div>
+            <AudioPlayer
+                showJumpControls={false}
+                header={trackName}
+                src={adres}
+                autoPlay={false}
+            />
         );
     }
 }

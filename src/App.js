@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React from 'react'
 
 import {BrowserRouter as Router} from "react-router-dom";
@@ -29,6 +29,7 @@ function App() {
                             <Route path={"/characterList"} exact component={CharacterList}/>
                             <Route path={"/quotesList"} exact component={QuoteList}/>
                             <Route path={"/add"} exact component={QuoteUploadForm}/>
+                            <Route path={"/editCharacter/:id"} exact component={AddCharacterForm}/>
                             <Route path={"/addCharacter"} exact component={AddCharacterForm}/>
                         </Switch>
                     </Col>

@@ -2,13 +2,17 @@ import React, {Component} from "react";
 
 import {Card, Button, Form} from "react-bootstrap";
 import MyToast from "../toasts/MyToast";
+
 import axios from "axios";
+
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSave, faUndo} from "@fortawesome/free-solid-svg-icons";
 
 export default class QuoteUploadForm extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {name: "", quote: undefined};
+        this.state = this.initialState;
         this.state.show = false;
         this.submitQuote = this.submitQuote.bind(this);
         this.fileChange = this.fileChange.bind(this)
@@ -16,7 +20,16 @@ export default class QuoteUploadForm extends Component {
     }
 
     initialState = {
-        name: "", quote: undefined
+       name: "", quote: undefined, diablo2Characters: []
+
+    }
+
+    componentDidMount() {
+        axios.get("http://localhost:8888/stayAwhileAndListen/character/allCharacters")
+            .then(response => response.data)
+            .then((data) => {
+                this.setState({diablo2Characters: data});
+            });
     }
 
     submitQuote = event => {
@@ -25,7 +38,6 @@ export default class QuoteUploadForm extends Component {
         const form = new FormData;
         form.append('mpegFile', this.state.quote)
         form.append('characterName', this.state.name)
-
         axios.post("http://localhost:8888/stayAwhileAndListen/quotes/addQuote", form)
             .then(response => {
                 if (response.data != null) {
@@ -35,8 +47,8 @@ export default class QuoteUploadForm extends Component {
                     this.setState({"show": false});
                 }
             }).catch((error) => {
-                console.log(error)
-            })
+            console.log(error)
+        })
     }
 
     quoteChange = event => {
@@ -70,13 +82,17 @@ export default class QuoteUploadForm extends Component {
                         <Card.Body>
                             <Form.Group controlId={"formGridName"}>
                                 <Form.Label>Character Name</Form.Label>
-                                <Form.Control required autoComplete={"off"}
+                                <Form.Control as={"select"} required autoComplete={"off"}
                                               name={"name"}
                                               value={this.state.name}
                                               onChange={this.quoteChange}
                                               type="text"
-                                              className={"bg-dark text-white"}
-                                />
+                                              className={"bg-dark text-white"}>
+                                    {
+                                        this.state.diablo2Characters.map((diablo2Characters) =>
+                                            <option>{diablo2Characters.name}</option>
+                                        )}
+                                </Form.Control>
                             </Form.Group>
                             <Form.Group controlId={"formGridDescription"}>
                                 <Form.Label>File Upload</Form.Label>
@@ -87,8 +103,12 @@ export default class QuoteUploadForm extends Component {
                             </Form.Group>
                         </Card.Body>
                         <Card.Footer style={{"textAlign": "right"}}>
-                            <Button size="sm" variant="success" type="submit">Submit</Button>
-                            <Button size="sm" variant="info" type="reset">Reset</Button>
+                            <Button size="sm" variant="success" type="submit">
+                                <FontAwesomeIcon icon={faSave}/> Submit
+                            </Button>
+                            <Button size="sm" variant="info" type="reset">
+                                <FontAwesomeIcon icon={faUndo}/> Reset
+                            </Button>
                         </Card.Footer>
                     </Form>
                 </Card>
