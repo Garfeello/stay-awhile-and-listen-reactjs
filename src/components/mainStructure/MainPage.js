@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 
-import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
-
 import Mp3FilePlayer from "../player/Mp3FilePlayer";
 import FavouriteQuotes from "./FavouriteQuotes";
+
+import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import axios from "axios";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -42,6 +42,7 @@ export default class MainPage extends Component {
     render() {
         const marginTopTextCenter = {marginTop: "10px", textAlign: "center"};
         const marginBottomTextCenter = {marginBottom: "60px", textAlign: "center"};
+
         return (
             <Container fluid>
                 <Row className={"d-flex justify-content-center"}>
@@ -51,20 +52,20 @@ export default class MainPage extends Component {
                                 <Card.Title as={"h5"}>Today's random quote</Card.Title>
                                 <Card.Header>{this.state.dailyDiablo2Character.name}</Card.Header>
                                 <Card.Text>
-                                    <Mp3FilePlayer
-                                        children={{
-                                            quoteId: this.state.dailyQuote.id,
-                                            quoteName: this.state.dailyQuote.name
-                                        }}/>
+                                    <Mp3FilePlayer quoteId={this.state.dailyQuote.id}
+                                                   quoteName={this.state.dailyQuote.name}/>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
                 </Row>
-                <Row>
-
-
-                </Row>
+                <Card className={"border border-dark bg-dark text-white"}
+                      style={{marginTop: "20px", marginBottom: "20px", textAlign: "center"}}>
+                    <Card.Header>Favourite quote</Card.Header>
+                    <Row>
+                        <FavouriteQuotes/>
+                    </Row>
+                </Card>
                 <Row className={"d-flex justify-content-center"}>
                     <Col lg={8} style={marginBottomTextCenter}>
                         <Card className={"border border-dark bg-dark text-white"}>
@@ -72,11 +73,8 @@ export default class MainPage extends Component {
                                 <Card.Title as={"h5"}>Roll Random Quote</Card.Title>
                                 <Card.Header>{this.state.randomDiablo2Character.name}</Card.Header>
                                 <Card.Text>
-                                    <Mp3FilePlayer
-                                        children={{
-                                            quoteId: this.state.randomQuote.id,
-                                            quoteName: this.state.randomQuote.name
-                                        }}/>
+                                    <Mp3FilePlayer quoteId={this.state.randomQuote.id}
+                                                   quoteName={this.state.randomQuote.name}/>
                                 </Card.Text>
                             </Card.Body>
                             <Card.Footer>

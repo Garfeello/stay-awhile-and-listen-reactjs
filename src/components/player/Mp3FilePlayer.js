@@ -8,8 +8,8 @@ import "./../../App.scss";
 export default class Mp3FilePlayer extends Component {
 
     render() {
-        const adres = "http://localhost:8888/stayAwhileAndListen/audio/getById/" + this.props.children.quoteId;
-        const trackName = this.props.children.quoteName
+        const adres = "http://localhost:8888/stayAwhileAndListen/audio/getById/" + this.props.quoteId;
+        const trackName = this.props.quoteName
 
         return (
             <AudioPlayer

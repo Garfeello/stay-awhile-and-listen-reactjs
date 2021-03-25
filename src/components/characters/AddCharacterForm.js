@@ -1,13 +1,12 @@
 import React, {Component} from "react";
 
 import axios from "axios";
-
 import {Card, Form, Button} from "react-bootstrap";
+
+import MyToast from "../toasts/MyToast";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSave, faUndo} from "@fortawesome/free-solid-svg-icons";
-
-import MyToast from "../toasts/MyToast";
 
 export default class QuoteUploadForm extends Component {
 
@@ -48,7 +47,6 @@ export default class QuoteUploadForm extends Component {
 
     submitCharacter = event => {
         event.preventDefault();
-
         const diablo2Character = {
             name: this.state.name,
             description: this.state.description
@@ -67,7 +65,6 @@ export default class QuoteUploadForm extends Component {
 
     updateCharacter = event => {
         event.preventDefault();
-
         const diablo2Character = {
             id: this.state.id,
             name: this.state.name,

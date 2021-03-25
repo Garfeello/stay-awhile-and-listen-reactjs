@@ -84,7 +84,7 @@ export default class QuoteList extends Component {
                                 <tr key={quote.id}>
                                     <td>{quote.id}</td>
                                     <td>{quote.diablo2Character.name}</td>
-                                    <td><Mp3FilePlayer children={{quoteId: quote.id, quoteName: quote.name}}/></td>
+                                    <td><Mp3FilePlayer quoteId={quote.id} quoteName={quote.name}/></td>
                                     <td> {quote.favourite === true ? <FontAwesomeIcon icon={faStar}/> : ""}</td>
                                     <td>
                                         <ButtonGroup>
