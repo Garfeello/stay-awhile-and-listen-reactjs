@@ -36,7 +36,7 @@ export default class MainPage extends Component {
             .then(response => response.data)
             .then((data) => {
                 this.setState({dailyQuote: data, dailyDiablo2Character: data.diablo2Character});
-            });
+            }).catch()
     }
 
     render() {

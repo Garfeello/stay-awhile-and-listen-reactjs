@@ -38,6 +38,8 @@ export default class QuoteUploadForm extends Component {
         const form = new FormData;
         form.append('mpegFile', this.state.quote)
         form.append('characterName', this.state.name)
+        console.log(this.state.name);
+
         axios.post("http://localhost:8888/stayAwhileAndListen/quotes/addQuote", form)
             .then(response => {
                 if (response.data != null) {
