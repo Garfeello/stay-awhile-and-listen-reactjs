@@ -35,7 +35,7 @@ export default class MainPage extends Component {
         axios.get("http://localhost:8888/stayAwhileAndListen/quotes/getRandomDailyQuote/" + this.state.currentDay)
             .then(response => response.data)
             .then((data) => {
-                this.setState({dailyQuote: data, dailyDiablo2Character: data.diablo2Character});
+                this.setState({dailyQuote: data, dailyDiablo2Character: data.diablo2Character === null ? " " : data.diablo2Character});
             }).catch()
     }
 

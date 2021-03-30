@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-import {Button, ButtonGroup, Card, Table, Row} from "react-bootstrap";
+import {Button, ButtonGroup, Card, Table} from "react-bootstrap";
 import axios from "axios";
 
 import Mp3FilePlayer from "../player/Mp3FilePlayer";
@@ -8,7 +8,6 @@ import Mp3FilePlayer from "../player/Mp3FilePlayer";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar, faTrashAlt} from "@fortawesome/free-solid-svg-icons";
 import MyToast from "../toasts/MyToast";
-
 
 export default class QuoteList extends Component {
 
@@ -23,6 +22,8 @@ export default class QuoteList extends Component {
         axios.get("http://localhost:8888/stayAwhileAndListen/quotes/allQuotes")
             .then(response => response.data)
             .then((data) => {
+                console.log("lol")
+                console.log(data)
                 this.setState({quotes: data});
             });
     }
@@ -83,7 +84,7 @@ export default class QuoteList extends Component {
                             {this.state.quotes.map((quote) =>
                                 <tr key={quote.id}>
                                     <td>{quote.id}</td>
-                                    <td>{quote.diablo2Character.name}</td>
+                                    <td>{quote.diablo2Character === null ? "test" : quote.diablo2Character.name}</td>
                                     <td><Mp3FilePlayer quoteId={quote.id} quoteName={quote.name}/></td>
                                     <td> {quote.favourite === true ? <FontAwesomeIcon icon={faStar}/> : ""}</td>
                                     <td>
